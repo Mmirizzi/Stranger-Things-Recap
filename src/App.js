@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Home from "./pages/Home";
+import Characters from "./pages/Characters";
+import Seasons from "./pages/Seasons";  // <-- nuovo import per la pagina Stagioni
+import About from "./pages/About";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <div className="min-h-screen bg-black text-white">
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/Characters" element={<Characters />} />
+          <Route path="/Seasons" element={<Seasons />} />  {/* qui il componente Seasons */}
+          <Route path="/about" element={<About />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 
