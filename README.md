@@ -8,7 +8,7 @@ Un’applicazione interattiva realizzata con **React** che ti porta dentro l’u
 
 ## 🌐 Demo Live
 
-👉 [Vai al sito](stranger-things-recap.vercel.app)
+👉 [Vai al sito](https://stranger-things-recap.vercel.app)
 
 ---
 
