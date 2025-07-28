@@ -1,3 +1,46 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Effetto glitch/bagliore sul container */
+.glitch-hover {
+    transition: filter 0.3s ease;
+  }
+  
+  .glitch-hover:hover {
+    filter: drop-shadow(0 0 8px #ff0000);
+    animation: glitch 0.5s infinite;
+  }
+  
+  /* Forza il testo a rimanere bianco anche al passaggio del mouse */
+  .glitch-hover:hover h3,
+  .glitch-hover:hover p,
+  .glitch-hover:hover span {
+    color: white !important;
+  }
+  
+  
+  
+  
+  /* Keyframes animazione glitch (puoi modificarla come vuoi) */
+  @keyframes glitch {
+    0% {
+      filter: drop-shadow(0 0 8px #ff0000);
+    }
+    50% {
+      filter: drop-shadow(0 0 4px #ff0000);
+    }
+    100% {
+      filter: drop-shadow(0 0 8px #ff0000);
+    }
+}
+    @media (max-width: 640px) {
+        .glitch-hover:hover {
+          animation: none !important;
+          filter: drop-shadow(0 0 4px #ff0000);
+        }
+      }
+    
+      
+  
+  

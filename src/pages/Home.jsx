@@ -7,7 +7,8 @@ export default function Home() {
   return (
     <main className="flex flex-col items-center justify-center min-h-screen bg-black text-white px-6">
       <h1 className="text-5xl font-heading text-red-600 mb-6 text-center animate-fade-in drop-shadow-lg">
-        Welcome to Upside Down
+        Welcome to{" "}
+        <span className="inline-block transform rotate-180">Upside</span> Down
       </h1>
       <p className="text-lg max-w-xl mb-10 text-center">
         Discover the characters, seasons, and the complete story of the series before

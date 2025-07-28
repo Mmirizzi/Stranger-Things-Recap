@@ -1,15 +1,15 @@
-import { FaHatWizard, FaBolt, FaGlasses, FaFistRaised, FaChild, FaShieldAlt, FaSkull, FaFemale, FaBicycle,} from "react-icons/fa";
+import { FaHatWizard, FaBolt, FaHeadphones, FaFistRaised, FaAngrycreative, FaSkull, FaBicycle,} from "react-icons/fa";
 import { MdDoorBack } from "react-icons/md";
-import { GiFireRing , GiHourglass} from "react-icons/gi";
+import { GiFireRing , GiHourglass, GiSkateboard, GiPoliceOfficerHead} from "react-icons/gi";
 
 export const characterIcons = {
   "Eleven (Jane Hopper)": FaBolt,       // fulmine per poteri psichici
-  "Mike Wheeler": FaHatWizard,           // mago per leader
-  "Dustin Henderson": FaGlasses,         // occhiali per intelligenza
+  "Mike Wheeler": FaAngrycreative,           // mago per leader
+  "Dustin Henderson": FaHeadphones,         // occhiali per intelligenza
   "Lucas Sinclair": FaFistRaised,        // pugno per forza e lealtà
-  "Max Mayfield": FaFemale,                 // ragazza generica
-  "Will Byers": FaChild,                  // bambino
-  "Jim Hopper": FaShieldAlt,              // scudo per protezione
+  "Max Mayfield": GiSkateboard,                 // ragazza generica
+  "Will Byers": FaHatWizard,                  // bambino
+  "Jim Hopper": GiPoliceOfficerHead,              // scudo per protezione
   "Vecna / Henry Creel": FaSkull         // teschio per antagonista
 };
 export const seasonsIcons = {

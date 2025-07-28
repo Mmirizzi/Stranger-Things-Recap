@@ -1,14 +1,20 @@
-import React from 'react';
-import { seasonsIcons } from '../icons/icons';
+import React from "react";
+import { seasonsIcons } from "../icons/icons";
 
-export default function SeasonCard({ season }) {
-  const Icon = seasonsIcons[season.id]; 
+export default function SeasonCard({ season, onClick }) {
+  const Icon = seasonsIcons[season.id];
 
   return (
-    <div className="bg-black text-white rounded-xl p-6 max-w-sm w-full flex flex-col items-center shadow-lg hover:shadow-2xl transition-shadow duration-300">
+    <div
+      onClick={onClick}
+      className="glitch-hover relative bg-black text-white rounded-xl p-4 m-4 mt-6 max-w-xs flex flex-col items-center
+             transition-transform duration-300 transform hover:scale-105 hover:shadow-red-500/40
+             shadow-md cursor-pointer hover:animate-pulse hover:z-20"
+      style={{ overflow: "visible" }}
+    >
       {Icon && <Icon className="text-6xl mb-4 text-red-600" />}
-      <h2 className="text-xl font-bold mb-2 text-center">{season.title} ({season.year})</h2>
-      <p className="text-white text-sm text-center">{season.summary}</p>
+      <h2 className="text-xl font-bold text-center">{season.title} ({season.year})</h2>
+      <p className="text-sm text-center">{season.summary}</p>
     </div>
   );
 }
