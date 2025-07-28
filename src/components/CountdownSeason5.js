@@ -1,14 +1,17 @@
-import React, { useState, useEffect, useMemo } from "react";
-import { FaHourglassHalf } from "react-icons/fa";
+import React, { useState, useEffect, useMemo, useCallback } from "react";
+import { seasons } from "../data/seasons";
+import SeasonCard from "../components/SeasonCard";
 
-export default function CountdownSeason5() {
+function CountdownSeason5() {
   const targetDate = useMemo(() => new Date("2025-11-26T00:00:00"), []);
 
-  function getTimeLeft() {
+  const getTimeLeft = useCallback(() => {
     const now = new Date();
     const difference = targetDate - now;
 
-    if (difference <= 0) return null;
+    if (difference <= 0) {
+      return null;
+    }
 
     return {
       days: Math.floor(difference / (1000 * 60 * 60 * 24)),
@@ -16,34 +19,47 @@ export default function CountdownSeason5() {
       minutes: Math.floor((difference / (1000 * 60)) % 60),
       seconds: Math.floor((difference / 1000) % 60),
     };
-  }
+  }, [targetDate]);
 
-  const [timeLeft, setTimeLeft] = useState(getTimeLeft());
+  const [timeLeft, setTimeLeft] = useState(getTimeLeft);
 
   useEffect(() => {
-    const interval = setInterval(() => {
+    const timer = setInterval(() => {
       setTimeLeft(getTimeLeft());
     }, 1000);
-    return () => clearInterval(interval);
-  }, []);
+
+    return () => clearInterval(timer);
+  }, [getTimeLeft]);
 
   if (!timeLeft) {
     return (
-      <div className="text-red-500 font-bold text-lg animate-pulse">
-        La stagione 5 è iniziata!
+      <div className="text-center text-lg font-bold mb-6">
+        Season 5 has started!
       </div>
     );
   }
 
   return (
-    <div className="bg-white text-black rounded-xl shadow-lg p-4 w-full md:w-72 text-center animate-fade-in border border-red-600">
-      <div className="flex justify-center mb-2">
-        <FaHourglassHalf className="text-red-600 text-3xl animate-pulse" />
-      </div>
-      <p className="text-lg font-bold text-red-700 mb-1">Countdown Stagione 5</p>
-      <p className="text-sm">
-        {timeLeft.days}g {timeLeft.hours}h {timeLeft.minutes}m {timeLeft.seconds}s
+    <div className="text-center text-lg font-semibold mb-6">
+      <p>Countdown to Season 5:</p>
+      <p>
+        {timeLeft.days} days, {timeLeft.hours} hours, {timeLeft.minutes} minutes,{" "}
+        {timeLeft.seconds} seconds
       </p>
+    </div>
+  );
+}
+
+export default function Seasons() {
+  return (
+    <div className="min-h-screen bg-black text-white p-8">
+      <h1 className="text-3xl font-bold mb-6 text-center">Seasons</h1>
+      <CountdownSeason5 />
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-items-center">
+        {seasons.map((season) => (
+          <SeasonCard key={season.id} season={season} />
+        ))}
+      </div>
     </div>
   );
 }
