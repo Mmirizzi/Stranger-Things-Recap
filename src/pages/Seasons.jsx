@@ -34,17 +34,17 @@ function CountdownSeason5() {
   if (!timeLeft) {
     return (
       <div className="text-center text-lg font-bold mb-6">
-        La stagione 5 è iniziata!
+        Season 5 is here!
       </div>
     );
   }
 
   return (
     <div className="text-center text-lg font-semibold mb-6">
-      <p>Countdown per la Stagione 5:</p>
+      <p>Season 5 Countdown:</p>
       <p>
-        {timeLeft.days} giorni, {timeLeft.hours} ore, {timeLeft.minutes} minuti,{" "}
-        {timeLeft.seconds} secondi
+        {timeLeft.days} days, {timeLeft.hours} hours, {timeLeft.minutes} minutes,{" "}
+        {timeLeft.seconds} seconds
       </p>
     </div>
   );
@@ -59,7 +59,9 @@ export default function Seasons() {
       transition={{ duration: 0.5 }}
       className="min-h-screen bg-black text-white p-8"
     >
-      <h1 className="text-3xl font-bold mb-6 text-center">Seasons</h1>
+      <h1 className="text-5xl font-heading text-red-600 mb-6 text-center animate-fade-in drop-shadow-lg">
+      Seasons
+      </h1>
       <CountdownSeason5 />
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-items-center">
         {seasons.map((season) => (

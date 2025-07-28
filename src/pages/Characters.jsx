@@ -11,10 +11,12 @@ export default function Characters() {
       transition={{ duration: 0.5 }}
       className="min-h-screen bg-black text-white p-8"
     >
-      <h1 className="text-3xl font-bold mb-6 text-center">Characters</h1>
-      <div className="flex flex-wrap justify-center">
-        {characters.map((char, index) => (
-          <CharacterCard key={index} character={char} />
+      <h1 className="text-5xl font-heading text-red-600 mb-6 text-center animate-fade-in drop-shadow-lg">
+      Characters
+      </h1>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        {characters.map((char) => (
+          <CharacterCard key={char.name} character={char} />
         ))}
       </div>
     </motion.div>

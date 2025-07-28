@@ -10,7 +10,7 @@ export default function CharacterCard({ character }) {
       <h3 className="text-xl font-bold text-center">{character.name}</h3>
       <p className="text-sm text-center">{character.description}</p>
       <p className="text-xs text-gray-500 text-center">
-        Stagioni: {character.seasons.join(", ")}
+        Seasons: {character.seasons.join(", ")}
       </p>
     </div>
   );

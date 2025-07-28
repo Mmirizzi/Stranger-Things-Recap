@@ -1,73 +1,50 @@
 import React from "react";
 import { FaGithub, FaReact } from "react-icons/fa";
-import { SiTailwindcss, SiVite, SiJavascript } from "react-icons/si";
+import { SiTailwindcss, SiFramer } from "react-icons/si";
 import { motion } from "framer-motion";
 
 export default function About() {
   return (
-    <div className="min-h-screen bg-black text-white px-4 py-10 flex flex-col items-center">
-      <motion.h1
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="text-4xl font-extrabold mb-6 text-center"
-      >
-        👋 About This Project
-      </motion.h1>
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      className="min-h-screen bg-black text-white px-6 py-12 flex flex-col items-center"
+    >
+      <h1 className="text-4xl font-bold mb-6 text-center font-heading text-red-600">
+        About This Project
+      </h1>
 
-      <motion.p
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.3 }}
-        className="text-lg text-center max-w-2xl mb-8 px-2"
-      >
-        Questo progetto è una fan app dedicata alla serie <strong>Stranger Things</strong>. L'ho
-        sviluppato per migliorare le mie competenze con React e Tailwind CSS e come esempio pratico da includere nel mio portfolio.
-      </motion.p>
+      <p className="text-lg max-w-2xl text-center mb-8 text-gray-300 leading-relaxed">
+        This fan-made recap was built to celebrate <span className="text-red-500 font-semibold">Stranger Things</span> and help viewers revisit its most iconic moments. From Season 1 to the upcoming Season 5, the journey of Hawkins comes alive through detailed summaries and visual components.
+      </p>
 
-      {/* 🚀 Tecnologie */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.5 }}
-        className="mb-12 w-full max-w-xl"
-      >
-        <h2 className="text-2xl font-semibold mb-4 text-center">🚀 Tecnologie Utilizzate</h2>
-        <div className="flex flex-wrap justify-center gap-3 px-2">
-          <TechBadge Icon={FaReact} label="React" color="text-cyan-400" />
-          <TechBadge Icon={SiTailwindcss} label="Tailwind CSS" color="text-blue-400" />
-          <TechBadge Icon={SiVite} label="Vite" color="text-purple-400" />
-          <TechBadge Icon={SiJavascript} label="JavaScript" color="text-yellow-300" />
-        </div>
-      </motion.div>
+      <div className="bg-black bg-opacity-50 p-6 rounded-xl mb-8 max-w-xl w-full shadow-lg">
+        <h2 className="text-2xl font-semibold mb-4 text-red-500">Technologies Used</h2>
+        <ul className="space-y-2 text-gray-300">
+          <li className="flex items-center gap-2">
+            <FaReact className="text-cyan-400" /> React.js
+          </li>
+          <li className="flex items-center gap-2">
+            <SiTailwindcss className="text-sky-400" /> Tailwind CSS
+          </li>
+          <li className="flex items-center gap-2">
+            <SiFramer className="text-pink-400" /> Framer Motion
+          </li>
+        </ul>
+      </div>
 
-      {/* 👤 Autore */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.7 }}
-        className="text-center"
-      >
-        <h2 className="text-2xl font-semibold mb-2">👨‍💻 Creato da</h2>
-        <p className="mb-4">Michi Mirizzi – Junior Frontend Developer</p>
+      <div className="text-center">
+        <p className="text-gray-400 mb-2"> © 2025 Michi Mirizzi </p>
         <a
-          href="https://github.com/Mmirizzi"
+          href="https://github.com/Mmirizzi" // <-- aggiorna con il tuo link GitHub o portfolio
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white font-medium px-5 py-2 rounded-md transition shadow-lg"
+          className="inline-flex items-center gap-2 text-red-500 hover:underline"
         >
-          <FaGithub /> GitHub
+          <FaGithub className="text-xl" /> View on GitHub
         </a>
-      </motion.div>
-    </div>
-  );
-}
-
-function TechBadge({ Icon, label, color }) {
-  return (
-    <span className="bg-gray-800 px-4 py-2 rounded-full flex items-center gap-2 text-sm shadow-md">
-      <Icon className={`${color} text-lg`} />
-      {label}
-    </span>
+      </div>
+    </motion.div>
   );
 }
