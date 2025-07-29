@@ -1,5 +1,6 @@
 import React from "react";
 import { seasonsIcons } from "../icons/icons";
+import { FaRegClock } from "react-icons/fa";
 
 export default function SeasonCard({ season, onClick }) {
   const Icon = seasonsIcons[season.id];
@@ -13,8 +14,19 @@ export default function SeasonCard({ season, onClick }) {
       style={{ overflow: "visible" }}
     >
       {Icon && <Icon className="text-6xl mb-4 text-red-600" />}
-      <h2 className="text-xl font-bold text-center">{season.title} ({season.year})</h2>
-      <p className="text-sm text-center">{season.summary}</p>
+
+      <h2 className="text-xl font-bold text-center">
+        {season.title} ({season.year})
+      </h2>
+
+      <div className="flex flex-col items-center mt-2">
+        <FaRegClock className="text-red-400" aria-hidden="true" focusable={false} />
+        <span className="text-xs text-gray-300 mt-1 select-none">
+          Ambientato nel {season.inSeriesYear}
+        </span>
+      </div>
+
+      <p className="text-sm text-center mt-4">{season.summary}</p>
     </div>
   );
 }
